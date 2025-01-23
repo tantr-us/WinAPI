@@ -20,9 +20,5 @@ int _tmain()
 	LPCTSTR const_str = _T("This message is blocked from modifying");
 	wprintf(L"%s\n", const_str);
 
-	// Read/Write Console
-
-
-
 	return 0;
 }
