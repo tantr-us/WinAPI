@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GenericString", "GenericStr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadWriteConsole", "ReadWriteConsole\ReadWriteConsole.vcxproj", "{401ACB71-D743-4C63-BB05-5BCEF8EF03B9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BinaryUtilities", "BinaryUtilities", "{94FC5EBA-37D8-49EE-A871-FA5E4F4350B2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HexDump", "HexDump\HexDump.vcxproj", "{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,8 +35,19 @@ Global
 		{401ACB71-D743-4C63-BB05-5BCEF8EF03B9}.Release|x64.Build.0 = Release|x64
 		{401ACB71-D743-4C63-BB05-5BCEF8EF03B9}.Release|x86.ActiveCfg = Release|Win32
 		{401ACB71-D743-4C63-BB05-5BCEF8EF03B9}.Release|x86.Build.0 = Release|Win32
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Debug|x64.ActiveCfg = Debug|x64
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Debug|x64.Build.0 = Debug|x64
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Debug|x86.ActiveCfg = Debug|Win32
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Debug|x86.Build.0 = Debug|Win32
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Release|x64.ActiveCfg = Release|x64
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Release|x64.Build.0 = Release|x64
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Release|x86.ActiveCfg = Release|Win32
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58} = {94FC5EBA-37D8-49EE-A871-FA5E4F4350B2}
 	EndGlobalSection
 EndGlobal
