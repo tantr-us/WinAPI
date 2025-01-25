@@ -8,7 +8,7 @@
 // Prototype
 VOID printErrorMessage(DWORD dwErrorCode);
 DWORD dumpBinary(LPCTSTR lpBinaryFilePath);
-
+VOID printBinaryInHex(BYTE *lpBuffer);
 
 int _tmain(int argc, TCHAR *argv[])
 {
@@ -87,24 +87,29 @@ DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 			&dwNumOfBytesRead,
 			NULL))
 		{
-			INT iColumn = 0;
-			const INT iMaxColumn = 10;
-			for (INT i = 0; i < BUFFER_SIZE; i++)
-			{
-				if (iColumn < iMaxColumn)
-				{
-					_tprintf(_T("%02X "), (BYTE)lpBuffer[i]);
-					iColumn++;
-				}
-				else
-				{
-					_tprintf(_T("%02X\n"), (BYTE)lpBuffer[i]);
-					iColumn = 0;
-				}
-			}
+			printBinaryInHex(lpBuffer);
 		}
 	} while (dwNumOfBytesRead != 0);
 
 	CloseHandle(hFile);
 	return EXECUTE_SUCCESSED;
+}
+
+VOID printBinaryInHex(BYTE *lpBuffer)
+{
+	INT iColumn = 0;
+	const INT iMaxColumn = 10;
+	for (INT i = 0; i < BUFFER_SIZE; i++)
+	{
+		if (iColumn < iMaxColumn)
+		{
+			_tprintf(_T("%02X "), (BYTE)lpBuffer[i]);
+			iColumn++;
+		}
+		else
+		{
+			_tprintf(_T("%02X\n"), (BYTE)lpBuffer[i]);
+			iColumn = 0;
+		}
+	}
 }
