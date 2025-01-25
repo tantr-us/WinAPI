@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BinaryUtilities", "BinaryUt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HexDump", "HexDump\HexDump.vcxproj", "{AF06C2E6-4C30-4DBE-A319-C051A83C9C58}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experiment", "Experiment", "{2269F922-E466-4C37-950D-6FFE98005380}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -48,6 +50,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{C8F69E21-2F84-427E-8B1D-15979ECF0AE2} = {2269F922-E466-4C37-950D-6FFE98005380}
+		{401ACB71-D743-4C63-BB05-5BCEF8EF03B9} = {2269F922-E466-4C37-950D-6FFE98005380}
 		{AF06C2E6-4C30-4DBE-A319-C051A83C9C58} = {94FC5EBA-37D8-49EE-A871-FA5E4F4350B2}
 	EndGlobalSection
 EndGlobal
