@@ -97,19 +97,20 @@ DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 
 VOID printBinaryInHex(BYTE *lpBuffer)
 {
-	INT iColumn = 0;
-	const INT iMaxColumn = 10;
+	INT iByteIndex = 1;
+	const INT iBytePerRow = 16;
 	for (INT i = 0; i < BUFFER_SIZE; i++)
 	{
-		if (iColumn < iMaxColumn)
+		if (iByteIndex < iBytePerRow)
 		{
 			_tprintf(_T("%02X "), (BYTE)lpBuffer[i]);
-			iColumn++;
+			iByteIndex++;
 		}
 		else
 		{
 			_tprintf(_T("%02X\n"), (BYTE)lpBuffer[i]);
-			iColumn = 0;
+			iByteIndex = 1;
 		}
 	}
+	_tprintf(_T("\n"));
 }
