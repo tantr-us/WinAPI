@@ -4,6 +4,7 @@
 #define EXECUTE_FAILED -1
 #define EXECUTE_SUCCESSED 0
 #define BUFFER_SIZE 4096 // 4 kb
+#define ASCII_ARR_SIZE 16
 
 // Prototype
 VOID printErrorMessage(DWORD dwErrorCode);
@@ -95,22 +96,42 @@ DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 	return EXECUTE_SUCCESSED;
 }
 
-VOID printBinaryInHex(BYTE *lpBuffer)
+VOID printBinaryInHex(BYTE* lpBuffer)
 {
-	INT iByteIndex = 1;
+	INT iByteIndex = 1, iAsciiIndex = 0;
 	const INT iBytePerRow = 16;
+	BYTE asciiArray[ASCII_ARR_SIZE];
+
 	for (INT i = 0; i < BUFFER_SIZE; i++)
 	{
 		if (iByteIndex < iBytePerRow)
 		{
 			_tprintf(_T("%02X "), (BYTE)lpBuffer[i]);
+			asciiArray[iAsciiIndex] = (BYTE)lpBuffer[i];
 			iByteIndex++;
+			iAsciiIndex++;
 		}
 		else
 		{
-			_tprintf(_T("%02X\n"), (BYTE)lpBuffer[i]);
+			_tprintf(_T("%02X\t\t | \t"), (BYTE)lpBuffer[i]);
+			asciiArray[iAsciiIndex] = (BYTE)lpBuffer[i];
+
+			for (INT j = 0; j < ASCII_ARR_SIZE; j++)
+			{
+				CHAR c = asciiArray[j];
+				if (0 <= (INT)c && (INT)c <= 32)
+				{
+					_tprintf(_T("."));
+				}
+				else
+				{
+					_tprintf(_T("%c"), asciiArray[j]);
+				}
+			}
+			_tprintf(_T("\n"));
+
 			iByteIndex = 1;
+			iAsciiIndex = 0;
 		}
 	}
-	_tprintf(_T("\n"));
 }
