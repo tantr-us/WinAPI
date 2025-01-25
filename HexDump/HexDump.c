@@ -5,7 +5,29 @@
 #define EXECUTE_SUCCESSED 0
 #define BUFFER_SIZE 4096 // 4 kb
 
-void printErrorMessage(DWORD dwErrorCode)
+// Prototype
+VOID printErrorMessage(DWORD dwErrorCode);
+DWORD dumpBinary(LPCTSTR lpBinaryFilePath);
+
+
+int _tmain(int argc, TCHAR *argv[])
+{
+
+	if (argc < 2)
+	{
+		_tprintf(_T("\n Usage: HexDump.exe [binary file]\n\n"));
+	}
+	else
+	{
+		LPCTSTR lpBinaryFilePath = argv[1];
+		_tprintf(_T("\n Open binary file: %s\n\n"), lpBinaryFilePath);
+		dumpBinary(lpBinaryFilePath);
+	}
+
+	return 0;
+}
+
+VOID printErrorMessage(DWORD dwErrorCode)
 {
 	// Retrieve the system error message for the last-error code
 
@@ -59,10 +81,10 @@ DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 	do
 	{
 		if (ReadFile(
-			hFile, 
-			(LPVOID) lpBuffer, 
-			BUFFER_SIZE, 
-			&dwNumOfBytesRead, 
+			hFile,
+			(LPVOID)lpBuffer,
+			BUFFER_SIZE,
+			&dwNumOfBytesRead,
 			NULL))
 		{
 			INT iColumn = 0;
@@ -85,22 +107,4 @@ DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 
 	CloseHandle(hFile);
 	return EXECUTE_SUCCESSED;
-}
-
-
-int _tmain(int argc, TCHAR *argv[])
-{
-
-	if (argc < 2)
-	{
-		_tprintf(_T("\n Usage: HexDump.exe [binary file]\n\n"));
-	}
-	else
-	{
-		LPCTSTR lpBinaryFilePath = argv[1];
-		_tprintf(_T("\n Open binary file: %s\n\n"), lpBinaryFilePath);
-		dumpBinary(lpBinaryFilePath);
-	}
-
-	return 0;
 }
