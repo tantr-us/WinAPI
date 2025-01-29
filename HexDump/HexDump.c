@@ -28,6 +28,11 @@ int _tmain(int argc, TCHAR *argv[])
 	return 0;
 }
 
+/**
+ *  @brief      Retrieve the system error message for the last-error code
+ *
+ *  @param      dwErrorCode    Error code returned from GetLastError().
+ */
 VOID printErrorMessage(DWORD dwErrorCode)
 {
 	// Retrieve the system error message for the last-error code
@@ -54,6 +59,11 @@ VOID printErrorMessage(DWORD dwErrorCode)
 	ExitProcess(dwErrorCode);
 }
 
+/**
+ *  @brief      Dump binary from a provided file.
+ *
+ *  @param      lpBinaryFilePath    path to the binary file.
+ */
 DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 {
 	// Open the binary file from the file path
@@ -96,6 +106,11 @@ DWORD dumpBinary(LPCTSTR lpBinaryFilePath)
 	return EXECUTE_SUCCESSED;
 }
 
+/**
+ *  @brief      Print the binary in hexadecimal and ASCII.
+ *
+ *  @param      lpBuffer    A byte array.
+ */
 VOID printBinaryInHex(BYTE* lpBuffer)
 {
 	INT iByteIndex = 1, iAsciiIndex = 0;
