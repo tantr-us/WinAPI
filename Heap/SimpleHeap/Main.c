@@ -7,9 +7,14 @@
 #define BUFFER_SIZE 8
 #define CHOICE_BUFFER_SIZE 4
 
+#define LINE_BREAK_DELIMITER _T("\r\n")
+
 // function prototype
 int PrintMainMenu();
-VOID PrintErrorMessage(DWORD dwErrorCode);
+void GetStringInput(TCHAR *lpInputString);
+void ViewSavedString();
+void PrintErrorMessage(DWORD dwErrorCode);
+
 
 int _tmain()
 {
@@ -33,22 +38,15 @@ int _tmain()
 
 				if (iMenuChoice == 1)
 				{
-					HANDLE hConsoleIn = GetStdHandle(STD_INPUT_HANDLE);
-					TCHAR lpBuffer[BUFFER_SIZE] = { 0 };
-					DWORD dwNumberOfByteToRead = 0;
+					TCHAR *lpInputString = { 0 };
+					GetStringInput(lpInputString);
 
-					_tprintf(_T("New String: "));
-					BOOL bReadResult = ReadConsole(hConsoleIn, (LPVOID)lpBuffer, BUFFER_SIZE, &dwNumberOfByteToRead, 0);
-					FlushConsoleInputBuffer(hConsoleIn);
-					if (!bReadResult)
-					{
-						PrintErrorMessage(GetLastError());
-					}
-					else
-					{
+					_tprintf(_T("Your string: %s\n"), lpInputString);
 
-					}
-					CloseHandle(hConsoleIn);
+				}
+				else if (iMenuChoice == 2)
+				{
+					ViewSavedString();
 				}
 				else if (iMenuChoice == 4)
 				{
@@ -98,32 +96,36 @@ int _tmain()
 
 int PrintMainMenu()
 {
-	_tprintf(_T("1. Create New String\n2. View Saved String\n3. Delete Saved String\n4. Exit\n\nChoice: "));
-
 	int choice = -1;
-	HANDLE hConsoleIn = GetStdHandle(STD_INPUT_HANDLE);
-	TCHAR cChoice[CHOICE_BUFFER_SIZE] = { 0 };
-	DWORD dwNumberOfByteToRead = 0;
-	BOOL bReadResult = ReadConsole(hConsoleIn, (LPVOID)cChoice, CHOICE_BUFFER_SIZE, &dwNumberOfByteToRead, 0);
-	cChoice[_tcslen(cChoice)-1] = '\0';
-	if (!bReadResult)
+	_tprintf(_T("1. Create New String\n2. View Saved String\n3. Delete Saved String\n4. Exit\n\nChoice: "));
+	_tscanf_s(_T(" %d"), &choice);
+	return choice;
+}
+
+
+void GetStringInput(TCHAR *lpInputString)
+{
+	HANDLE hConsoleInput = GetStdHandle(STD_INPUT_HANDLE);
+	TCHAR lpBuffer[BUFFER_SIZE] = { 0 };
+	DWORD dwNumOfByteToRead = 0;
+	BOOL bReadConsoleResult = ReadConsole(hConsoleInput, (LPVOID)lpBuffer, BUFFER_SIZE, &dwNumOfByteToRead, NULL);
+	if (!bReadConsoleResult)
 	{
 		PrintErrorMessage(GetLastError());
 	}
 	else
 	{
-		choice = _tstoi(cChoice);
-		_tprintf(_T("choice: %d\n"), choice);
+		lpInputString = _tcstok_s(lpBuffer, _T("\r\n"), lpInputString);
 	}
-	if (!FlushConsoleInputBuffer(hConsoleIn))
-	{
-		PrintErrorMessage(GetLastError());
-	}
-	CloseHandle(hConsoleIn);
-	return choice;
+	CloseHandle(hConsoleInput);
 }
 
-VOID PrintErrorMessage(DWORD dwErrorCode)
+void ViewSavedString()
+{
+	_tprintf(_T("View Saved String\n"));
+}
+
+void PrintErrorMessage(DWORD dwErrorCode)
 {
 	// Retrieve the system error message for the last-error code
 
