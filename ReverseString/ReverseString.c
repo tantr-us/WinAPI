@@ -3,7 +3,13 @@
 
 #define BUFFER_SIZE 64
 
+<<<<<<< HEAD
 VOID PrintErrorMessage(DWORD dwErrorCode);
+=======
+
+VOID PrintErrorMessage(DWORD dwErrorCode);
+VOID ReverseString();
+>>>>>>> e8fa74dea4ed808d5b556d50f806b2361b2eaed1
 
 int _tmain()
 {
@@ -26,6 +32,7 @@ int _tmain()
 		else
 		{
 			TCHAR* token = _tcstok(lpBuffer, _T("\r\n"));
+<<<<<<< HEAD
 			if (token != NULL) {
 				if (_tcscmp(token, sExit) == 0)
 				{
@@ -45,6 +52,16 @@ int _tmain()
 
 					_tprintf(_T(" > Reversed string: %s\n\n"), lpReveredBuffer);
 				}
+=======
+			if (_tcscmp(token, sExit) == 0)
+			{
+				_tprintf(_T("\n >> Goodbye! <<\n"));
+				break;
+			}
+			else
+			{
+				_tprintf(_T("\n > Your string: %s\n\n"), token);
+>>>>>>> e8fa74dea4ed808d5b556d50f806b2361b2eaed1
 			}
 		}
 	}
@@ -56,8 +73,12 @@ int _tmain()
 /**
  *  @brief      Retrieve the system error message for the last-error code
  *
+<<<<<<< HEAD
  *  @param      
  *		DWORD dwErrorCode    Error code returned from GetLastError().
+=======
+ *  @param      dwErrorCode    Error code returned from GetLastError().
+>>>>>>> e8fa74dea4ed808d5b556d50f806b2361b2eaed1
  */
 VOID PrintErrorMessage(DWORD dwErrorCode)
 {
@@ -84,3 +105,12 @@ VOID PrintErrorMessage(DWORD dwErrorCode)
 	LocalFree(lpMsgBuf);
 	ExitProcess(dwErrorCode);
 }
+<<<<<<< HEAD
+=======
+
+
+void ReverseString()
+{
+	// placeholder
+}
+>>>>>>> e8fa74dea4ed808d5b556d50f806b2361b2eaed1
