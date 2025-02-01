@@ -9,6 +9,7 @@ This repository contains various experiments and projects focused on learning an
 - [Introduction](#introduction)
 - [Projects](#projects)
 - [Getting Started](#getting-started)
+- [Tools](#tools)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 - [Resources](#resources)
@@ -35,10 +36,12 @@ The projects in this repository range from simple console applications to more c
 
 To get started with any project in this repository, follow the instructions below.
 
-1. Visual Studio 2022 with Microsoft C++ Compiler
-2. Clone the repository ```git clone https://github.com/tantr-us/WinAPI.git```
-3. Open the solution file *WinAPI.sln* in Visual Studio.
-4. Build and run the project within Visual Studio.
+1. Clone the repository ```git clone https://github.com/tantr-us/WinAPI.git```
+2. Open the solution file *WinAPI.sln* in Visual Studio.
+3. Build and run the project within Visual Studio.
+
+## Tools
+Visual Studio 2022 with Microsoft C++ Compiler
 
 ## License
 
