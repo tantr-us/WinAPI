@@ -8,7 +8,7 @@ This repository contains various experiments and projects focused on learning an
 
 - [Introduction](#introduction)
 - [Projects](#projects)
-- [Getting Started](#getting-started)
+- [Usage](#usage)
 - [Tools](#tools)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -32,7 +32,7 @@ The projects in this repository range from simple console applications to more c
 &nbsp;&nbsp;&nbsp;&nbsp;✅: *Completed* <br>
 &nbsp;&nbsp;&nbsp;&nbsp;🔲: *Work in Process*
 
-## Getting Started
+## Usage
 
 To get started with any project in this repository, follow the instructions below.
 
