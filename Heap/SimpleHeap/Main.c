@@ -98,13 +98,15 @@ int PrintMainMenu()
 {
 	int choice = -1;
 	_tprintf(_T("1. Create New String\n2. View Saved String\n3. Delete Saved String\n4. Exit\n\nChoice: "));
-	_tscanf_s(_T(" %d"), &choice);
+	_tscanf_s(_T("%d"), &choice);
+	while (getchar() != '\n');
 	return choice;
 }
 
 
 void GetStringInput(TCHAR *lpInputString)
 {
+	_tprintf(_T("Enter a string: "));
 	HANDLE hConsoleInput = GetStdHandle(STD_INPUT_HANDLE);
 	TCHAR lpBuffer[BUFFER_SIZE] = { 0 };
 	DWORD dwNumOfByteToRead = 0;
@@ -113,10 +115,12 @@ void GetStringInput(TCHAR *lpInputString)
 	{
 		PrintErrorMessage(GetLastError());
 	}
-	else
-	{
-		lpInputString = _tcstok_s(lpBuffer, _T("\r\n"), lpInputString);
-	}
+	//else
+	//{
+	//	TCHAR *token = _tcstok(lpBuffer, _T("\r\n"));
+
+	//	_tprintf(_T("token: %s\n"), token);
+	//}
 	CloseHandle(hConsoleInput);
 }
 
