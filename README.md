@@ -27,7 +27,7 @@ The projects in this repository range from simple console applications to more c
 - [ExceptionHandling](ExceptionHandling) - experiment exception handling using __try and __execept ✅
 - [ReverseString](ReverseString) - read a string input and reverse it ✅
 - [Heap/SimpleHeap](Heap/SimpleHeap) - read a string input and store it in the heap 🔲
-- [Heap/IntegerPool (Std C)](Heap/IntegerPool/StdC/StdC_IPManager) - an integer pool using standard C libraries 🔲
+- [Heap/IntegerPool (Std C)](Heap/IntegerPool/StdC) - an integer pool using standard C libraries 🔲
 
 ***📝Note:*** <br>
 &nbsp;&nbsp;&nbsp;&nbsp;✅: *Completed* <br>
