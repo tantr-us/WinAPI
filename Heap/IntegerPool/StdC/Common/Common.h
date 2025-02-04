@@ -7,6 +7,10 @@
 #define TRUE 1
 #define FALSE 0
 
+// Pipename
+#define BUFFER_SIZE 256
+#define PIPE_NAME _T("\\\\.\\pipe\\IntegerPool_Pipe")
+
 // Request type
 #define REQUEST_NUMBER 1
 #define RELEASE_NUMBER 2
